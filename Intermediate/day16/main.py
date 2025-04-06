@@ -13,6 +13,7 @@ while True:
         cafeteira.report()
         caixa.report()
     elif entry == 'off':
+        print('desligando máquina...')
         break
     else:
         if cafeteira.is_resource_sufficient(catalogo.find_drink(entry)):
