@@ -17,5 +17,5 @@ class Scoreboard(Turtle):
         self.update_score()
 
     def EndGame(self):
-        self.goto(0, 0)
+        self.home()
         self.write(f'FIM DE JOGO',align='center',font=('Arial',24,'normal'))
