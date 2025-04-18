@@ -68,17 +68,14 @@ def call_news(stock):
 #######################################################################EXIBITION
 print(stockData)
 print('------------------------------------------------------')
-
 try:
     entry = int(input('\nDigite o INDEX da ação que será analisada: '))
     selected_row = stockData.loc[entry]
 except (ValueError, KeyError):
     print("Entrada inválida. Certifique-se de digitar um número válido.")
     exit()
-
 selected_stock = stockData.loc[entry]['STOCK']
 selected_stock_name = stockData.loc[entry]['COMPANY_NAME']
-
 print('\nSTOCK :       COMPANY NAME')
 print(f'{selected_stock} : {selected_stock_name}\n')
 stockmarket_params = {
@@ -87,7 +84,7 @@ stockmarket_params = {
     "outputsize" : 'compact',
     "apikey" : os.getenv('STOCKMARKET_API_KEY'),
 }
-###################CONSULTA AO STOCKmarket
+###################consulta ao stockmarket
 stockmarket_request = requests.get(stockmarket_request_url, params=stockmarket_params)
 stockmarket_request.raise_for_status()
 data = stockmarket_request.json()
