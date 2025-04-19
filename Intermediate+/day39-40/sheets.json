@@ -1,0 +1,67 @@
+{
+    "prices": [
+        {
+            "country": "Peru",
+            "city": "Lima",
+            "code": "LIM",
+            "lowestPrice": 1675,
+            "id": 2
+        },
+        {
+            "country": "Chile",
+            "city": "Santiago",
+            "code": "SCL",
+            "lowestPrice": 800,
+            "id": 3
+        },
+        {
+            "country": "Brasil",
+            "city": "Manaus",
+            "code": "MAO",
+            "lowestPrice": 840,
+            "id": 4
+        },
+        {
+            "country": "Espanha",
+            "city": "Madrid",
+            "code": "MAD",
+            "lowestPrice": 3600,
+            "id": 5
+        },
+        {
+            "country": "Portugal",
+            "city": "Lisboa",
+            "code": "LIS",
+            "lowestPrice": 2600,
+            "id": 6
+        },
+        {
+            "country": "Marrocos",
+            "city": "Casablanca",
+            "code": "CMN",
+            "lowestPrice": 5300,
+            "id": 7
+        },
+        {
+            "country": "Singapura",
+            "city": "Singapura",
+            "code": "SIN",
+            "lowestPrice": 9000,
+            "id": 8
+        },
+        {
+            "country": "Nova Zelândia",
+            "city": "Auckland",
+            "code": "AKL",
+            "lowestPrice": 7000,
+            "id": 9
+        },
+        {
+            "country": "Argentina",
+            "city": "Buenos Aires",
+            "code": "EZE",
+            "lowestPrice": 2500,
+            "id": 10
+        }
+    ]
+}

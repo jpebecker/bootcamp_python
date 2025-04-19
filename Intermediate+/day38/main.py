@@ -10,7 +10,7 @@ APP_HEADER = {
 search_url = 'https://trackapi.nutritionix.com/v2/natural/nutrients'
 sheets_url = f'https://api.sheety.co/{os.getenv('SHEETY_ID')}/refeicoesApi/mainPage'
 sheets_header={
-    "Authorization": f"Bearer {os.getenv('sheety_api_key')}"
+    "Authorization": f"Bearer {os.getenv('sheety_refeicoes_api_key')}"
 }
 #############################################
 def calc_results(results:json):
