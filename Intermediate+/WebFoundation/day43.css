@@ -1,0 +1,36 @@
+/*CSS Rules for the color project*/
+
+*{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+html{
+    background-color: bisque;
+}
+
+h1{
+    text-align: center;
+}
+
+.red-text{
+    color: red;
+}
+
+.blue-text{
+    color:deepskyblue;
+}
+.orange-text{
+    color:orange;
+}
+.green-text{
+    color:green;
+}
+hr{
+    background-color: #000000;
+    border: none;
+    color: #000000;
+    height: 2px;
+}
+img{
+    height: 200px;
+    width: 200px;
+}
