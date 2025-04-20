@@ -1,6 +1,4 @@
-import os,requests
-import time
-
+import os,requests,time
 from googleapiclient.discovery import build
 from datetime import datetime
 from google.oauth2.credentials import Credentials
@@ -8,7 +6,7 @@ from googleapiclient.errors import HttpError
 from bs4 import BeautifulSoup
 from tokenizer import authenticate_youtube
 
-# pesquisar musicas na Billboard
+######################################################pesquisar musicas na Billboard
 def search_songs_on_billboard(year):
     ano = datetime(year=year, month=1, day=1).strftime("%Y-%m-%d")
     url = f"https://www.billboard.com/charts/hot-100/{ano}"
@@ -24,7 +22,7 @@ def search_songs_on_billboard(year):
 
     return song_names
 
-# cria uma playlist no YouTube
+###########################################################cria uma playlist no YouTube
 def create_youtube_playlist(access_token, playlist_title):
     # auth
     youtube = build('youtube', 'v3', credentials=Credentials(token=access_token))
@@ -52,7 +50,7 @@ def create_youtube_playlist(access_token, playlist_title):
         print(f"An HTTP error occurred: {e}")
         return None
 
-# adiciona 66 musicas na playlist do YouTube (max de 10k quota per day)
+################################adiciona 66 musicas na playlist do YouTube (max de 10k quota per day)
 def add_songs_to_playlist(access_token, playlist_id, song_titles):
     youtube = build('youtube', 'v3', credentials=Credentials(token=access_token))
 
@@ -95,7 +93,7 @@ def add_songs_to_playlist(access_token, playlist_id, song_titles):
         except HttpError as e:
             print(f"Erro na busca por {song_title}: {e}")
 
-# loop principal
+##########################loop principal
 def main():
 
     creds = authenticate_youtube()
