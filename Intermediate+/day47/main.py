@@ -35,7 +35,7 @@ options.add_argument("--headless")  # Roda sem abrir janela
 options.add_argument("--disable-gpu")
 options.add_argument("--no-sandbox")
 options.add_argument("--window-size=1920x1080")
-options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36")
+options.add_argument(os.getenv('browser_header'))
 
 ###############################################Inicializa o navegador
 driver = webdriver.Chrome(options=options)
@@ -80,9 +80,8 @@ for i in range(len(table_prices)):
         new_sheety_request.raise_for_status()
         #################message concatenation
         msg += (f"\n{table[i]['description']} baixou de Preço!\n"
-                f"De R${table_prices[i]} por R${actual_prices_of_products[i]}\n\n"
-                f"Acesse o link: {table[i]['hyperlink']}\n\n"
-                f"\n")
+                f"De R${table_prices[i]} por R${actual_prices_of_products[i]}\n"
+                f"Acesse o link: {table[i]['hyperlink']}\n\n")
 if there_is_change:
     send_email(message=msg)
 else:
