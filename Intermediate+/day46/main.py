@@ -58,7 +58,7 @@ def add_songs_to_playlist(access_token, playlist_id, song_titles):
         # busca no youtube
         search_request = youtube.search().list(
             part="snippet",
-            q=song_title,  # nome da musica
+            q=f'{song_title} music',  # nome da musica
             type="video"
         )
 

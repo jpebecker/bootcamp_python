@@ -2,7 +2,7 @@ from data_manager import DataManager
 from flight_search import FlightManager
 from flight_finder import find_cheapest_flight
 from datetime import datetime,timedelta
-import os,requests,smtplib
+import os,smtplib
 from email.mime.text import MIMEText
 #######################################################
 origin_City = 'FLN'
