@@ -7,7 +7,7 @@ from selenium.common.exceptions import (
 )
 import time
 
-########################3options para manter aberto o browser
+########################options para manter aberto o browser
 chrome_options = wb.ChromeOptions()
 chrome_options.add_experimental_option("detach", True)
 driver = wb.Chrome(options=chrome_options)
