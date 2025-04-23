@@ -71,7 +71,7 @@ def buscar_eventos(local):
     WebDriverWait(browser, 30).until(ExpC.element_to_be_clickable((By.CLASS_NAME,'PBBEhf')))
     more_entries_btn = browser.find_element(By.CLASS_NAME,'PBBEhf')
     more_entries_btn.click()
-    time.sleep(10)
+    WebDriverWait(browser,15).until(ExpC.presence_of_element_located((By.CLASS_NAME, 'SBFvB')))
     eventos = []
     try:
         header_ul = browser.find_element(By.CLASS_NAME, 'SBFvB')
@@ -84,20 +84,22 @@ def buscar_eventos(local):
                 titulo = item.text
                 link = item.find_element(By.TAG_NAME, 'a').get_attribute('href')
                 eventos.append({'titulo': titulo, 'link': link})
-            except:
+            except Exception as e:
+                print(f"[Parser] falhou no item: {e}")
                 continue
         for item in bottom_itens:
             try:
                 titulo = item.text
                 link = item.find_element(By.TAG_NAME, 'a').get_attribute('href')
                 eventos.append({'titulo': titulo, 'link': link})
-            except:
+            except Exception as e:
+                print(f"[Parser] falhou no item: {e}")
                 continue
 
     except Exception as e:
         print("Erro ao capturar box de eventos:", e)
-
-    browser.quit()
+    finally:
+        browser.quit()
     print('Formatando resultados...')
     eventos_formatados =[extrair_dados(e) for e in eventos]
     return eventos_formatados
