@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ptBR">
+<head>
+    <meta charset="UTF-8">
+    <title>profilePage</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1 style="text-align: center;">Hello...Visitors?</h1>
+
+    <div class="container">
+        <img src="{{ url_for('static', filename='data/perfil_img_circle.png') }}">
+        <div>
+            <h2>João Pedro Becker Schneider</h2>
+            <h2>Estudante Bacharel em Ciência da Informação pela UFSC</h2>
+            <h2>Formado em Tecnólogo em Desenvolvimento de Jogos Digitais pela Faculdade SENAC Palhoça</h2>
+            <h3>Sou fã de inovações e busco sempre aprender mais para alimentar o pensamento disruptivo.
+            Exploro minha capacidade criativa toda vez que posso.</h3>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="section">
+        <h2>Minhas redes para contato:</h2>
+        <h3>LinkedIn:
+            <a href="https://www.linkedin.com/in/jpebecker" target="_blank">www.linkedin.com/in/jpebecker</a>
+        </h3>
+        <h3>GitHub:
+            <a href="https://github.com/jpebecker" target="_blank">www.github.com/jpebecker</a>
+        </h3>
+        <h3>E-mail:
+            <a href="mailto:jpebecker@gmail.com">jpebecker@gmail.com</a>
+        </h3>
+    </div>
+    <hr>
+    <div class="section">
+        <h2>Minhas hard-skills:</h2>
+        <ul>
+            <li>Python Development (Full-stack)</li>
+            <li>Game Development (Unity)</li>
+            <li>SQL Server Management Studio</li>
+            <li>Portuguese, Spanish and English understanding</li>
+        </ul>
+    </div>
+</body>
+</html>
