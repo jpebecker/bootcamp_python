@@ -1,0 +1,39 @@
+/* Fundo escuro e cores base */
+body {
+  background-color: #121212;
+  color: #e0e0e0;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* Containers com fundo mais claro */
+.container, .jumbotron {
+  background-color: #1e1e1e;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Links */
+a {
+  color: #bb86fc;
+}
+a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* Títulos */
+h1, .display-4 {
+  color: #ffffff;
+}
+
+/* Tabela Bootstrap escura ajustada */
+.table-dark {
+  background-color: #1e1e1e;
+}
+.table-dark th,
+.table-dark td {
+  border-color: #2a2a2a;
+}

@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block title %}Add A New Cafe{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card bg-dark text-light shadow-lg">
+        <div class="card-header text-center">
+          <h2 class="mb-0">Add a New Coffee Store</h2>
+        </div>
+        <div class="card-body">
+          <form method="POST">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+              {{ form.cafe.label(class="form-label") }}
+              {{ form.cafe(class="form-control form-control-lg", placeholder="e.g. Lighthaus") }}
+              {% for error in form.cafe.errors %}
+                <small class="text-warning">{{ error }}</small>
+              {% endfor %}
+            </div>
+
+            <div class="form-group">
+              {{ form.location.label(class="form-label") }}
+              {{ form.location(class="form-control form-control-lg", placeholder="https://goo.gl/maps/...") }}
+              {% for error in form.location.errors %}
+                <small class="text-warning">{{ error }}</small>
+              {% endfor %}
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                {{ form.open_time.label(class="form-label") }}
+                {{ form.open_time(class="form-control") }}
+                {% for error in form.open_time.errors %}
+                  <small class="text-warning">{{ error }}</small>
+                {% endfor %}
+              </div>
+              <div class="form-group col-md-6">
+                {{ form.close_time.label(class="form-label") }}
+                {{ form.close_time(class="form-control") }}
+                {% for error in form.close_time.errors %}
+                  <small class="text-warning">{{ error }}</small>
+                {% endfor %}
+              </div>
+            </div>
+
+            <div class="form-group">
+              {{ form.coffee_rating.label(class="form-label") }}
+              {{ form.coffee_rating(class="form-control") }}
+            </div>
+
+            <div class="form-group">
+              {{ form.wifi_rating.label(class="form-label") }}
+              {{ form.wifi_rating(class="form-control") }}
+            </div>
+
+            <div class="form-group">
+              {{ form.power_rating.label(class="form-label") }}
+              {{ form.power_rating(class="form-control") }}
+            </div>
+
+            <div class="text-center mt-4">
+              {{ form.submit(class="btn btn-primary btn-lg px-5") }}
+            </div>
+          </form>
+        </div>
+        <div class="card-footer text-center">
+          <a href="{{ url_for('home') }}" class="text-info">&larr; Return to Home Page</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
