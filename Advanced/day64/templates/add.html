@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}Adicionar Filme{% endblock %}
+{% block content %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+<div class="container mt-4">
+    <h1 class="heading mb-4">Adicionar Filme</h1>
+    <form action="{{ url_for('add_movie') }}" method="POST">
+        <div class="mb-3">
+            <label for="title" class="form-label">Título do Filme</label>
+            <input type="text" id="title" name="title" class="form-control" placeholder="Digite o título do filme" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="year" class="form-label">Ano de Lançamento</label>
+            <input type="number" id="year" name="year" class="form-control" placeholder="Digite o ano de lançamento" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="description" class="form-label">Descrição</label>
+            <textarea id="description" name="description" class="form-control" placeholder="Uma breve descrição do filme" required></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="rating" class="form-label">Sua Nota (0-10)</label>
+            <input type="number" id="rating" name="rating" class="form-control" placeholder="Avalie o filme de 0 a 10" min="0" max="10">
+        </div>
+
+        <div class="mb-3">
+            <label for="ranking" class="form-label">Posição no Ranking</label>
+            <input type="number" id="ranking" name="ranking" class="form-control" placeholder="Qual a posição do filme (1 a 10)" min="1" max="10">
+        </div>
+
+        <div class="mb-3">
+            <label for="review" class="form-label">Sua Resenha</label>
+            <textarea id="review" name="review" class="form-control" placeholder="Sua opinião sobre o filme"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="img_url" class="form-label">URL da Imagem do Cartaz</label>
+            <input type="url" id="img_url" name="img_url" class="form-control" placeholder="URL da imagem do cartaz" required>
+        </div>
+
+        <button type="submit" class="btn btn-success w-100">Adicionar Filme</button>
+    </form>
+</div>
+{% endblock %}

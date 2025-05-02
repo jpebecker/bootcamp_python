@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Editar Filme{% endblock %}
+{% block content %}
+<div class="content">
+    <h1 class="heading">Editar Filme</h1>
+    <form method="POST">
+        <div class="form-group">
+            <label for="title">Título</label>
+            <input type="text" id="title" name="title" class="form-control" value="{{ movie.title }}" required>
+        </div>
+        <div class="form-group">
+            <label for="year">Ano</label>
+            <input type="number" id="year" name="year" class="form-control" value="{{ movie.year }}" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Descrição</label>
+            <textarea id="description" name="description" class="form-control" required>{{ movie.description }}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="rating">Nota</label>
+            <input type="text" id="rating" name="rating" class="form-control" value="{{ movie.rating }}">
+        </div>
+        <div class="form-group">
+            <label for="ranking">Ranking</label>
+            <input type="text" id="ranking" name="ranking" class="form-control" value="{{ movie.ranking }}">
+        </div>
+        <div class="form-group">
+            <label for="review">Review</label>
+            <textarea id="review" name="review" class="form-control">{{ movie.review }}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="img_url">URL da Imagem</label>
+            <input type="url" id="img_url" name="img_url" class="form-control" value="{{ movie.img_url }}" required>
+        </div>
+        <button type="submit" class="btn btn-success">Salvar Alterações</button>
+    </form>
+</div>
+{% endblock %}

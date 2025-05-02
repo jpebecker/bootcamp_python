@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}Top 10 Filmes{% endblock %}
+{% block styles %}
+
+<link rel="stylesheet" href="/static/css/styles.css">
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <header class="text-center mb-4">
+    <h1 class="heading">Top 10 Filmes</h1>
+    <p class="description">Passe o mouse sobre um card para ver mais informações.</p>
+  </header>
+
+  {% if movies %}
+  <div class="content">
+    {% for movie in movies %}
+    <div class="card">
+      <div class="front" style="background-image: url('{{ movie.img_url }}')">
+        <div class="large">{{ movie.ranking or '?' }}</div>
+      </div>
+      <div class="back">
+        <div>
+          <h3 class="title">{{ movie.title }} ({{ movie.year }})</h3>
+          <p class="rating"><i class="fas fa-star"></i> {{ '%.1f'|format(movie.rating or 0) }}</p>
+          <p class="review">“{{ movie.review or 'Sem review' }}”</p>
+          <p class="overview">{{ movie.description }}</p>
+          <div class="d-flex justify-content-between mt-3">
+            <a href="{{ url_for('edit_movie', id=movie.id) }}">
+              <button class="button">Editar</button>
+            </a>
+            <form action="{{ url_for('delete_movie', id=movie.id) }}" method="POST" style="display:inline;">
+              <button type="submit" class="button delete-button">Deletar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+    <div class="alert alert-warning text-center">Nenhum filme encontrado.</div>
+  {% endif %}
+
+  <div class="text-center mt-4">
+    <a href="{{ url_for('add_movie') }}" class="btn btn-success btn-lg">+ Adicionar Novo Filme</a>
+  </div>
+</div>
+{% endblock %}
