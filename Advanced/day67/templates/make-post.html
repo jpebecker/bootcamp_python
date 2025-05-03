@@ -1,0 +1,68 @@
+{% block content %}
+{% include "header.html" %}
+<!--Header -->
+<header class="masthead" style="background-image: url('../static/assets/img/edit-bg.jpg')">
+  <div class="container position-relative px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <div class="page-heading">
+          {% if post %}
+            <h1>Edit Post</h1>
+          {% else %}
+            <h1>New Post</h1>
+          {% endif %}
+          <span class="subheading">You're going to make a great blog post!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="mb-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <!-- Form to create or edit -->
+        <form method="POST" action="{{ url_for('edit_post', post_id=post.id) if post else url_for('add_new_post') }}">
+          {{ form.hidden_tag() }}
+
+          <!-- Title -->
+          <div class="form-group mb-3">
+            <label for="title">Título</label>
+            {{ form.title(class="form-control", id="title", required=True) }}
+          </div>
+
+          <!-- Subtitle -->
+          <div class="form-group mb-3">
+            <label for="subtitle">Subtítulo</label>
+            {{ form.subtitle(class="form-control", id="subtitle", required=True) }}
+          </div>
+
+          <!-- Author -->
+          <div class="form-group mb-3">
+            <label for="author">Autor</label>
+            {{ form.author(class="form-control", id="author", required=True) }}
+          </div>
+
+          <!-- Body -->
+          <div class="form-group mb-4">
+            <label for="body">Corpo do Post</label>
+            {{ form.body(class="form-control", id="body", rows="8", required=True) }}
+          </div>
+
+          <!-- Image URL -->
+          <div class="form-group mb-3">
+            <label for="img_url">URL da Imagem</label>
+            {{ form.img_url(class="form-control", id="img_url", required=True) }}
+          </div>
+
+          <!-- send result button -->
+          <button type="submit" class="btn btn-primary">{{ 'Update' if post else 'Publish' }}</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+
+{% include "footer.html" %}
+{% endblock %}
