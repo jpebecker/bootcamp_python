@@ -1,0 +1,277 @@
+{
+	"info": {
+		"_postman_id": "5bc0e8aa-3a35-4a04-8b87-46928e753ca6",
+		"name": "CafeApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44632746",
+		"_collection_link": "https://blue-spaceship-932862.postman.co/workspace/aaf7c01e-daca-4736-8a1b-b1e73fd57e4e/collection/44632746-5bc0e8aa-3a35-4a04-8b87-46928e753ca6?action=share&source=collection_link&creator=44632746"
+	},
+	"item": [
+		{
+			"name": "get_random_cafe",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/random",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"random"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_all_cafes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/all",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search_cafe_by_location",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "loc",
+							"value": "",
+							"description": "The location that you will try to find",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/search?loc=",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"search"
+					],
+					"query": [
+						{
+							"key": "loc",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add cafeteria to the Database",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "",
+							"description": "The name of the cafeteria",
+							"type": "text"
+						},
+						{
+							"key": "map_url",
+							"value": "",
+							"description": "the url to the cafeteria in google maps",
+							"type": "text"
+						},
+						{
+							"key": "img_url",
+							"value": "",
+							"description": "the url to the image of the cafeteria",
+							"type": "text"
+						},
+						{
+							"key": "loc",
+							"value": "",
+							"description": "the name of the neighborhood",
+							"type": "text"
+						},
+						{
+							"key": "sockets",
+							"value": "",
+							"description": "If the cafeteria has sockets to charge notebooks (bool vaue)",
+							"type": "text"
+						},
+						{
+							"key": "toilet",
+							"value": "",
+							"description": "if the cafeteria has toilet (bool value)",
+							"type": "text"
+						},
+						{
+							"key": "wifi",
+							"value": "",
+							"description": "if the cafeteria has wifi (bool value)",
+							"type": "text"
+						},
+						{
+							"key": "calls",
+							"value": "",
+							"description": "if you can take calls at the cafeteria (bool value)",
+							"type": "text"
+						},
+						{
+							"key": "seats",
+							"value": "",
+							"description": "how many seats has in the cafeteria",
+							"type": "text"
+						},
+						{
+							"key": "coffee_price",
+							"value": "",
+							"description": "how much cost the coffee",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/add?name&loc",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"add"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": null,
+							"description": "The name of the cafeteria *"
+						},
+						{
+							"key": "loc",
+							"value": null,
+							"description": "the name of the neighborhood *"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_coffee_price",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "",
+							"description": "The id of the cafeteria saved in the db",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/update-price/?new_price=",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"update-price",
+						""
+					],
+					"query": [
+						{
+							"key": "new_price",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Cafeteria",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/delete-cafe/1?api-key=TopSecretAPIKey",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"delete-cafe",
+						"1"
+					],
+					"query": [
+						{
+							"key": "api-key",
+							"value": "TopSecretAPIKey"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
