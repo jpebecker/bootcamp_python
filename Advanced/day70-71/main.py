@@ -33,7 +33,7 @@ def load_user(user_id):
 class Base(DeclarativeBase):
     pass
 
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DB_URL')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DB_URL','sqlite:///posts.db')
 db = SQLAlchemy(model_class=Base)
 db.init_app(app)
 
