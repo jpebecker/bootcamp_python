@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="static/css/style.css">
+  <title>Profile Page</title>
+</head>
+
+<body>
+<!-- Header -->
+<section id="header" class="gradient-background">
+  <header>
+    <div class="px-3 py-2 border-bottom">
+      <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-between">
+          <div class="d-flex align-items-left text-white">
+            <!-- Logo -->
+            <div class="d-flex align-items-center justify-content-center">
+              <i class="bi bi-person-circle fs-1 text-white me-2"></i>
+              <h2 class="mb-0 text-white">My Profile</h2>
+            </div>
+          </div>
+          <!--nav menu -->
+          <ul class="nav my-2 text-small">
+            <li>
+              <a href="#title" class="nav-link text-black">
+                <svg class="bi d-block mx-auto mb-1" width="24" height="24" aria-hidden="true"><use xlink:href="#home"></use></svg>
+                About Me
+              </a>
+            </li>
+            <li>
+              <a href="#projects" class="nav-link text-white">
+                <svg class="bi d-block mx-auto mb-1" width="24" height="24" aria-hidden="true"><use xlink:href="#speedometer2"></use></svg>
+                Projects
+              </a>
+            </li>
+            <li>
+              <a href="{{url_for('contact')}}" class="nav-link text-white">
+                <svg class="bi d-block mx-auto mb-1" width="24" height="24" aria-hidden="true"><use xlink:href="#grid"></use></svg>
+                Contact Me
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+</section>
+<!-- Title -->
+<section id="title" style="background-color: #333333; color: #ffffff;">
+  <div class="container col-xxl-8 px-4 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+      <div class="col-10 col-sm-8 col-lg-6">
+        <img src="/static/profile_pic_anime.png" class="d-block mx-lg-auto img-fluid" alt="my face in anime" style="width: 100%; height: auto; object-fit: cover; transform: scaleX(1.1);" loading="lazy">
+      </div>
+      <div class="col-lg-6">
+        <h1 class="display-5 fw-bold text-white lh-1 mb-3">Sobre mim</h1>
+
+        <p class="lead text-justify">
+            Procuro ser um profissional comprometido com a entrega de soluções de forma eficaz, sempre em busca de aprimorar minhas habilidades e expandir meus conhecimentos nas áreas em que atuo.
+        </p>
+
+        <p class="lead text-justify">
+            <strong>Desenvolvimento de Jogos:</strong><br>
+            Nos projetos em que participei, segui um fluxo estruturado de planejamento, prototipagem, testes iniciais e polimento. Esse processo foi guiado pela validação constante de ideias em discussões colaborativas, com o objetivo de lançar projetos com qualidade e consistência.
+        </p>
+
+        <p class="lead text-justify">
+            <strong>Experiência Administrativa:</strong><br>
+            Como Assistente Administrativo, atuei com o recebimento e conferência de peças, cadastro de produtos e notas fiscais, controle de estoque e distribuição. Essa experiência reforçou minha organização, atenção aos detalhes e capacidade de lidar com múltiplas tarefas, além de impulsionar a disciplina e proatividade na hora de resolver os problemas do cotidiano.
+        </p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+          <a href="#formations" class="btn btn-primary btn-lg px-4 me-md-2">Minhas Formações</a>
+          <a href="#projects" class="btn btn-outline-secondary btn-lg px-4">Veja meus Projetos</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  <!-- formacoes -->
+<section id="formations">
+  <div class="px-4 pt-5 my-5 text-center border-bottom">
+    <h1 class="display-4 fw-bold text-body-emphasis">Minhas Certificações</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4">Instituição / Certificado</p>
+
+      <!-- Lista -->
+      <ul class="list-unstyled">
+
+        <li class="d-flex align-items-center mb-3">
+          <img src="/static/udemy_logo.png" alt="Udemy Logo" width="60" height="40" class="me-3">
+          <div>
+            <strong>Udemy:</strong> Python Bootcamp: Beginner to Pro
+          </div>
+        </li>
+
+        <li class="d-flex align-items-center mb-3">
+          <img src="/static/brad_logo.png" alt="Bradesco Logo" width="60" height="40" class="me-3">
+          <div>
+            <strong>Bradesco Escola Virtual:</strong> Trilha de Aprendizado de Banco de Dados
+          </div>
+        </li>
+
+        <li class="d-flex align-items-center mb-3">
+          <img src="/static/udemy_logo.png" alt="Udemy Logo" width="60" height="40" class="me-3">
+          <div>
+            <strong>Udemy:</strong> Pacote Office Essential: Word, Powerpoint, Excel, Power Bi
+          </div>
+        </li>
+        <li class="d-flex align-items-center mb-3">
+          <img src="/static/senac_logo.png" alt="Senac Logo" width="60" height="40" class="me-3">
+          <div>
+            <strong>SENAC:</strong> Desenvolvimento de Jogos Digitais (técnologo)
+          </div>
+        </li>
+      </ul>
+
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+        <a href="#projects" class="btn btn-primary btn-lg px-4 me-sm-3">Veja os Projetos</a>
+      </div>
+    </div>
+    <!-- banner inferior -->
+    <div class="overflow-hidden" style="max-height: 60vh;">
+      <div class="container px-5">
+        <img src="/static/banner_certf.jpg" class="img-fluid border rounded-3 shadow-lg mb-4" alt="a blue lamp" width="1200" height="700" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Projetos -->
+<section id="projects" style="background-color: #1c1c1c;">
+  <div class="container px-4 py-5" id="custom-cards">
+    <h2 class="pb-2 border-bottom text-white">Alguns dos Meus Projetos & Áreas de Atuação</h2>
+
+    <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg"
+             style="background-image: url('/static/jogos.jpg'); background-size: cover; background-position: center;">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Jogos Digitais</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg"
+             style="background-image: url('/static/progm.jpg'); background-size: cover; background-position: center;">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Python Solutions</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg"
+             style="background-image: url('/static/bc.jpg'); background-size: cover; background-position: center;">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">SQL Management</h3>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+  <!-- Footer -->
+  <section id="footer">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <p class="col-md-4 mb-0 text-body-secondary">© 2025 Jpebecker, Bootstrap</p>
+
+      <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none" aria-label="Bootstrap">
+        <svg class="bi me-2" width="40" height="32" aria-hidden="true"><use xlink:href="#bootstrap"></use></svg>
+      </a>
+
+      <ul class="nav col-md-4 justify-content-end">
+        <li class="nav-item"><a href="#header" class="nav-link px-2 text-body-secondary">About Me</a></li>
+        <li class="nav-item"><a href="#formations" class="nav-link px-2 text-body-secondary">Certificados</a></li>
+        <li class="nav-item"><a href="#projects" class="nav-link px-2 text-body-secondary">Projetos</a></li>
+      </ul>
+    </footer>
+  </section>
+</body>
+
+</html>
