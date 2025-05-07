@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}CyberCafe - Coffee and Wifi{% endblock %}
+
+{% block content %}
+<div class="jumbotron text-center">
+    <div class="container">
+  <h1 class="display-4">☕️ Cybercafe - Coffee and Wifi 💻</h1>
+  <p class="lead">Você procura uma cafeteria com internet e tomada?</p>
+  <hr class="my-4">
+  <p>Aqui é o lugar certo! Encontre uma pequena coleção de cafeterias com internet e tomadas para visitar.</p>
+  <a class="btn btn-warning btn-lg" href="{{ url_for('cafes') }}" role="button">Veja a lista</a>
+    </div>
+</div>
+{% endblock %}
