@@ -1,0 +1,3 @@
+PyPdf2 == 3.0.1
+Pyttsx3 == 2.98
+tkinter == 3.12
