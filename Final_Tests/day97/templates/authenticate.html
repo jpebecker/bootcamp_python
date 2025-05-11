@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}{{ 'Entrar' if action == 'login' else 'Cadastrar' }}{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="text-center mb-4">{{ 'Entrar' if action == 'login' else 'Criar conta' }}</h2>
+                    <form method="POST">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">E-mail:</label>
+                            <input type="email" name="email" class="form-control" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Senha:</label>
+                            <input type="password" name="password" class="form-control" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">
+                            {{ 'Entrar' if action == 'login' else 'Cadastrar' }}
+                        </button>
+                    </form>
+
+                    <div class="text-center mt-3">
+                        {% if action == 'login' %}
+                            <p>Não tem uma conta? <a href="{{ url_for('register') }}">Cadastre-se</a></p>
+                        {% else %}
+                            <p>Já tem uma conta? <a href="{{ url_for('login') }}">Entre aqui</a></p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

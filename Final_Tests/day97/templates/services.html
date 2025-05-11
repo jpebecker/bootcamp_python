@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}{{ service.name }}{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="card shadow">
+    <div class="card-body">
+      <h2 class="card-title text-center">{{ service.name }}</h2>
+      <p class="card-text">{{ service.description }}</p>
+      <p class="card-text">
+        <strong>Preço:</strong> R$ {{ service.price }}
+      </p>
+
+      {% if current_user.is_authenticated %}
+      <form action="{{ url_for('create_checkout_session') }}" method="POST">
+        <input type="hidden" name="service_id" value="{{ service.id }}">
+        <button type="submit" class="btn btn-primary">
+          Contratar agora
+        </button>
+      </form>
+      {% else %}
+      <div class="alert alert-info mt-3" role="alert">
+        <a href="{{ url_for('login') }}" class="alert-link">Faça login</a>
+        para contratar este serviço.
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

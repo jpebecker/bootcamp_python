@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Início{% endblock %}
+
+{% block content %}
+<h1>Bem-vindo ao E-Services</h1>
+<div class="services">
+    {% for service in services %}
+    <div class="service">
+        <h3>{{ service.name }}</h3>
+        <p>R$ {{ service.price }}</p>
+        <a href="{{ url_for('view_service', service_id=service.id) }}">Ver detalhes</a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

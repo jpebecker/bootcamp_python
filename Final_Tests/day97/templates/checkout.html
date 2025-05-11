@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <!--  title  -->
+    <h1 class="text-center mb-4">Checkout</h1>
+
+    <!-- name and description of the service -->
+    <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+            <h3 class="card-title mb-0">{{ service.name }}</h3>
+        </div>
+        <div class="card-body">
+            <p>{{ service.description }}</p>
+            <p><strong>Preço:</strong> R$ {{ service.price }}</p>
+        </div>
+    </div>
+
+    <!-- checkout form -->
+    <div class="card">
+        <div class="card-header bg-secondary text-white">
+            <h5 class="card-title mb-0">Formulário de Pagamento</h5>
+        </div>
+        <div class="card-body">
+            <form action="/checkout" method="POST" id="payment-form">
+                <input type="hidden" name="service_id" value="{{ service.id }}">
+
+                <!-- credit card -->
+                <div id="card-element" class="mb-3">
+                </div>
+                <button type="submit" class="btn btn-success w-100">Comprar</button> <!-- stripe will assume from here -->
+            </form>
+        </div>
+    </div>
+
+    <!-- Sucess or Error -->
+    <div id="payment-message" class="mt-3"></div>
+
+    {% if client_secret %}
+    <!-- Stripe Script -->
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+        var stripe = Stripe("{{ publishable_key }}");
+        var clientSecret = "{{ client_secret }}";
+
+        // payment object
+        var elements = stripe.elements();
+        var card = elements.create('card');
+        card.mount('#card-element');
+
+        var form = document.getElementById('payment-form');
+        form.addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const {paymentIntent, error} = await stripe.confirmCardPayment(clientSecret, {
+                payment_method: {
+                    card: card,
+                }
+            });
+
+            if (error) {
+                var message = error.message;
+                document.getElementById('payment-message').innerText = message;
+            } else {
+                if (paymentIntent.status === 'succeeded') {
+                    document.getElementById('payment-message').innerText = 'Pagamento realizado com sucesso!';
+                }
+            }
+        });
+    </script>
+    {% endif %}
+</div>
+{% endblock %}
